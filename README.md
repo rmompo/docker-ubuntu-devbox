@@ -12,6 +12,27 @@ A lightweight Ubuntu Docker image, managed with PowerShell scripts, for installi
 - **Prefix (critical):** `dkdb`. Every name (image, container, user) is `dkdb-<name>`.
 - **Language:** documentation, scripts, messages and comments are all written in English.
 
+## Repository layout
+
+```
+scripts/
+  docker/   Dockerfile and entrypoint.sh
+  ps1/      PowerShell scripts (image-*, container-*, common.ps1)
+  bash/     AI client installers, copied to the resources volume by container-create
+specs/      Project specifications
+```
+
+## Quick start
+
+```powershell
+.\scripts\ps1\image-create.ps1       # build dkdb-<name>
+.\scripts\ps1\container-create.ps1   # create a container (also syncs scripts/bash)
+.\scripts\ps1\container-start.ps1
+.\scripts\ps1\container-connect.ps1  # then, inside: bash ~/devbox/resources/devbox-scripts/install-claude-code.sh
+.\scripts\ps1\container-stop.ps1
+.\scripts\ps1\image-delete.ps1
+```
+
 ## Methodology (CoT)
 
 Each spec follows the pattern **Context -> Reasoning -> Decision -> Consequences**. Every decision was validated one by one with the project owner before being written down here.

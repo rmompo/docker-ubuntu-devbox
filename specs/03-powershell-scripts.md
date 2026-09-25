@@ -20,6 +20,8 @@ Daily management of images and containers must be fast, without remembering Dock
 | `container-stop` | Menu of **running** `dkdb-` containers. |
 | `container-connect` | Menu of **running** `dkdb-` containers; opens bash with `docker exec -it -u <user>`. |
 
+- **Location:** `scripts/ps1/`.
+- **Script sync (in `container-create`):** after every validation has passed, copy `scripts/bash/*` to `<resources host path>\devbox-scripts\`, overwriting existing files. Source: resolved from `$PSScriptRoot` (`scripts/ps1/` -> `scripts/bash/`). Destination: the resources path already asked and validated (default `C:\shared\devbox\resources\`). Extra files in the destination are not deleted. A message warns that manual edits to the copies are lost. Implemented as a common function `Sync-DevboxScripts`.
 - All of them load the common file holding the prefix and `Select-DevboxItem`.
 - `.ps1` files are ASCII with LF line endings; prompts and messages are in English.
 

@@ -13,6 +13,7 @@ The image must be lightweight and generic: it serves any container and any AI cl
 7. Global `pip` works on 22.04, but virtual environments remain good practice -> include `python3-venv` and `pipx`.
 
 ## Decision
+- **Location:** the Docker files (`Dockerfile`, entrypoint script) live in `scripts/docker/`.
 - **Base:** `ubuntu:22.04` (configurable via `ARG`).
 - **Base packages:** `ca-certificates`, `curl`, `wget`, `nano`, `git`, `sudo`, `gosu`, `zip`, `unzip`, `less`.
 - **Recommended:** `jq`, `openssh-client`, `procps`, `bash-completion`, `gnupg`, `xz-utils`, `ripgrep`, `rsync`, `htop`, `iproute2`, `dnsutils`, `make`.

@@ -12,7 +12,8 @@ One AI client (Claude Code or GitHub Copilot CLI) is installed inside the contai
 6. Both clients install into `~/.local/bin` -> make sure it is on the PATH.
 
 ## Decision
-- **Location:** `C:\shared\devbox\resources\devbox-scripts\` (inside the container: `/home/<user>/devbox/resources/devbox-scripts/`).
+- **Source of truth:** `scripts/bash/` in the repository (versioned in git).
+- **Deployed copy:** `C:\shared\devbox\resources\devbox-scripts\` (inside the container: `/home/<user>/devbox/resources/devbox-scripts/`). `container-create` copies the repo scripts there, overwriting (spec 03); the copy must not be edited by hand.
 - **Claude Code:** `curl -fsSL https://claude.ai/install.sh | bash` (latest version; leaves `~/.local/bin/claude`).
 - **Copilot CLI:** `curl -fsSL https://gh.io/copilot-install | bash` (no Node needed; installs into `$HOME/.local` for non-root users).
 - **PATH:** each script appends `~/.local/bin` to `.bashrc` idempotently.

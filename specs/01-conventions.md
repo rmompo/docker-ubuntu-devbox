@@ -18,7 +18,8 @@ Several scripts and the image share names, encoding and ways of interacting with
 - **Length:** `dkdb-` takes 5 characters; the typed text allows up to 27 (Linux limits user names to 32).
 - **Filtering:** always by `dkdb-`.
 - **Encoding:** UTF-8 without BOM and LF for every file. A BOM would only be used in a `.ps1` that needs non-ASCII characters (currently none).
-- **`.gitattributes`:** `* text=auto eol=lf`, after reviewing the existing content.
+- **`.gitattributes`:** `* text=auto eol=lf` (replaces the initial `* text=auto`).
+- **Repository layout:** `scripts/docker/`, `scripts/ps1/`, `scripts/bash/`, `specs/`.
 - **Menu:** common function `Select-DevboxItem`, navigation only: up/down arrows, Enter confirms, Esc cancels. No numbers. ASCII, no external modules.
 
 ## Consequences

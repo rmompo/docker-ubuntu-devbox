@@ -12,7 +12,7 @@
 ## To check during implementation
 1. Confirm with Docker that `ubuntu:22.04` does not ship the `ubuntu` user.
 2. Confirm the `universe` repository is enabled in the image for `pipx` (otherwise `pip install --user pipx`).
-3. Review the current `.gitattributes` before changing it.
+3. ~~Review the current `.gitattributes`~~ Done: it only contained `* text=auto`; replaced by `* text=auto eol=lf`.
 4. Handle network exposure of the container (password is weak by design).
 
 ## Out of scope
