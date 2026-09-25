@@ -20,4 +20,6 @@ if (-not $userName) {
     exit 1
 }
 
-docker exec -it -u $userName -w "/home/$userName" $selected bash
+# TERM is set explicitly: without it, docker exec may give a plain "xterm" and
+# the default Ubuntu .bashrc then shows no colored prompt.
+docker exec -it -u $userName -w "/home/$userName" -e TERM=xterm-256color -e COLORTERM=truecolor $selected bash

@@ -35,7 +35,8 @@ function Read-DevboxName {
         [Parameter(Mandatory)][string]$Default
     )
     while ($true) {
-        $value = Read-Host "$Prompt [$Default]"
+        # The default is shown with the prefix; the typed text never includes it.
+        $value = Read-Host "$Prompt [$DevboxPrefix-$Default]"
         if ([string]::IsNullOrWhiteSpace($value)) { $value = $Default }
         $value = $value.Trim()
         if ($value -cnotmatch '^[a-z][a-z0-9_-]*$') {
