@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install Claude Code (latest) in this container.
-# Rule: one AI client per container. Run with: bash install-claude-code.sh
+# Rule: one AI client per container. Run with: bash install-claudecode.sh
 set -euo pipefail
 
 # Refuse to install if the other client is already present.
@@ -10,6 +10,7 @@ if command -v copilot >/dev/null 2>&1 || [ -e "$HOME/.local/bin/copilot" ]; then
     exit 1
 fi
 
+echo "Downloading and installing Claude Code (about 240 MB, it can take a few minutes; no progress bar is shown)..."
 curl -fsSL https://claude.ai/install.sh | bash
 
 # Make sure ~/.local/bin is on the PATH (idempotent).

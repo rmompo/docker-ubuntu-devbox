@@ -27,9 +27,11 @@ specs/      Project specifications
 ```powershell
 .\scripts\ps1\image-create.ps1       # build dkdb-<name>
 .\scripts\ps1\container-create.ps1   # create a container (also syncs scripts/bash)
+.\scripts\ps1\scripts-update.ps1     # re-copy scripts/bash to the resources volume
 .\scripts\ps1\container-start.ps1
-.\scripts\ps1\container-connect.ps1  # then, inside: bash ~/devbox/resources/devbox-scripts/install-claude-code.sh
+.\scripts\ps1\container-connect.ps1  # then, inside: bash ~/devbox/resources/devbox-scripts/install-claudecode.sh
 .\scripts\ps1\container-stop.ps1
+.\scripts\ps1\container-delete.ps1   # stopped containers only
 .\scripts\ps1\image-delete.ps1
 ```
 

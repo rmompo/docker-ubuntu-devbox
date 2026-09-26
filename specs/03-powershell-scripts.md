@@ -16,8 +16,10 @@ Daily management of images and containers must be fast, without remembering Dock
 | `image-create` | Asks only for the image name (default `ubuntu`) and builds `dkdb-<name>`. |
 | `image-delete` | Menu of `dkdb-` images; deletes the chosen one (single selection). |
 | `container-create` | Asks for the image (as `image-create` does), container name, user and the two host paths (spec 04). |
+| `scripts-update` | Asks for the host resources path (same default), validates it exists (aborts otherwise) and runs `Sync-DevboxScripts`: copies `scripts/bash/*` to `<resources>\devbox-scripts\`, overwriting. No container involved. |
 | `container-start` | Menu of **stopped** `dkdb-` containers. |
 | `container-stop` | Menu of **running** `dkdb-` containers. |
+| `container-delete` | Menu of **stopped** `dkdb-` containers (a running one must be stopped first); asks `[y/N]` confirmation because the container's home and installed AI client are lost; the host bind-mounted folders are not touched. |
 | `container-connect` | Menu of **running** `dkdb-` containers; opens bash with `docker exec -it -u <user>`. |
 
 - **Location:** `scripts/ps1/`.
