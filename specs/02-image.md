@@ -23,7 +23,7 @@ The image must be lightweight and generic: it serves any container and any AI cl
 - **Excluded:** Node and any language other than Python.
 - **Environment:** `LANG=C.UTF-8`.
 - **Bash colors:** adjust `/etc/skel/.bashrc` (`force_color_prompt=yes`, colored `ls` and `grep` aliases). Every new user is born with them.
-- **Entrypoint (root):** if the user does not exist, create it with `useradd -m`, set its password equal to its name, add it to the `sudo` group (no `NOPASSWD`), give the user ownership of `/home/<user>/devbox` (non-recursive, so mounts are untouched) and hand the main process to that user with `gosu`. It is idempotent across restarts.
+- **Entrypoint (root):** if the user does not exist, create it with `useradd -m`, set its password equal to its name, add it to the `sudo` group (no `NOPASSWD`), give the user ownership of `/home/<user>/devbox` (non-recursive, so mounts are untouched) and hand the main process to that user with `gosu`. It is idempotent across restarts. Because Docker creates the home folder (mount targets) before the entrypoint runs, `useradd` skips `/etc/skel`; the entrypoint therefore copies any missing skel file (no overwrite) and chowns it, so `.bashrc` and its colors always exist.
 - **User:** passed via an environment variable; the password is derived from the name, so no secret travels.
 
 ## Consequences
