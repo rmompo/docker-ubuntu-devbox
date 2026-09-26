@@ -4,7 +4,7 @@ A lightweight Ubuntu Docker image, managed with PowerShell scripts, for installi
 
 ## Overview
 
-- **Image:** minimal Ubuntu 22.04 with generic development tools and Python 3. It ships with no user and no AI client.
+- **Image:** minimal Ubuntu 26.04 LTS with generic development tools and Python 3. It ships with no user and no AI client.
 - **Container:** the user is created when the container is created (not in the image); the main process runs as that user.
 - **PowerShell scripts:** create and delete images; create, start, stop and connect to containers.
 - **AI clients:** installed inside the container with bash scripts stored on a mounted volume. **One client per container.**
